@@ -1,0 +1,17 @@
+<div class="card-bx w-full flex items-center justify-center py-14">
+  <div class="card bg-neutral text-neutral-content w-3/4">
+    <div class="card-body items-center text-center">
+      <div class="card-header flex justify-between gap-2">
+        <span class="my-5">{{ object?.id }}</span>
+        <h2 class="card-title">{{ object?.title }}!</h2>
+      </div>
+      <p class="my-5 pb-5">{{ object?.description }}</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary" [routerLink]="['/object-list']">
+          Back
+        </button>
+        <button class="btn btn-ghost">Done</button>
+      </div>
+    </div>
+  </div>
+</div>

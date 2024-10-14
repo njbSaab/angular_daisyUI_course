@@ -1,0 +1,25 @@
+<div
+  class="bg-base-4 py-10 flex flex-wrap gap-5 justify-center"
+  *ngIf="posts$ | async as posts"
+>
+  <ng-container *ngIf="posts.length > 0; else noPosts">
+    <div class="card bg-base-100 w-96 shadow-xl" *ngFor="let post of posts">
+      <div class="card-header pb-4 flex gap-2 text-xl justify-center">
+        <span>{{ post.id }}</span>
+        <h2>{{ post.title | shortStr }}</h2>
+        <span class="dots"></span>
+      </div>
+      <div class="card-body">
+        <p>{{ post.body }}</p>
+        <div class="card-actions justify-end">
+          <button class="btn bg-regular" [routerLink]="['/posts', post.id]">
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #noPosts>
+    <p>No posts available.</p>
+  </ng-template>
+</div>

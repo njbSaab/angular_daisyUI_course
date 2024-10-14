@@ -1,0 +1,31 @@
+.card {
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease-out;
+    backdrop-filter: brightness(1.5);
+  }
+  .card-header {
+    padding: 20px 20px 0 20px;
+    overflow: hidden;
+    h2 {
+      width: fit-content;
+      text-wrap: nowrap;
+      overflow: hidden;
+      text-transform: capitalize;
+      margin-right: 25px;
+    }
+    .dots {
+      width: 20px;
+      height: 28px;
+      position: relative;
+      &:after {
+        position: absolute;
+        right: 30px;
+        bottom: 0;
+        content: "...";
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<div
+  class="calc_wrapp max-h-dvh flex justify-center py-20 px-0 bg-gradient-primary-180"
+>
+  <div class="card mt-10 bg-base-100 shadow-xl w-2/3">
+    <h1 class="text-9xl text-center color-accent">{{ res }}</h1>
+    <div class="card-body">
+      <h2 class="card-title pb-2.5 justify-center text-3xl">
+        Enter your number
+      </h2>
+
+      <div class="card-actions justify-center flex-row">
+        <div class="form-reactive">
+          <input
+            type="number"
+            placeholder="First Number:"
+            class="input input-bordered input-secondary w-full max-w-xs"
+            [formControl]="calcForm.controls['firstNum']"
+          />
+        </div>
+
+        <div class="form-reactive max-w-21">
+          <select
+            [formControl]="calcForm.controls['picker']"
+            class="select select-success w-full"
+          >
+            <option
+              class="text-2xl"
+              *ngFor="let sign of arrayWithSigns"
+              [value]="sign"
+            >
+              {{ sign }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-reactive">
+          <input
+            type="number"
+            placeholder="Last Number: "
+            class="input input-bordered input-secondary w-full max-w-xs"
+            [formControl]="calcForm.controls['lastNum']"
+          />
+        </div>
+
+        <div class="btn-bx w-full flex justify-center">
+          <button (click)="calcCounter()" class="btn btn-success w-1/2 mt-5">
+            Сount
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

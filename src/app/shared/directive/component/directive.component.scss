@@ -1,0 +1,9 @@
+.section {
+  height: 50dvh;
+  position: relative;
+  z-index: 1;
+}
+.title {
+  text-shadow: 0 0 10px #ffffffbd;
+  transition: text-shadow 0.5s ease-in-out; /* Плавный переход */
+}

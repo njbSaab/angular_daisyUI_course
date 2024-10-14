@@ -1,0 +1,6 @@
+.tabs-lifted > .tab:is(input:checked) {
+  background: #f0070c;
+}
+.tab {
+  width: 100px !important;
+}

@@ -1,0 +1,26 @@
+<div class="bg-base-100 relative z-10">
+  <h2 class="pb-14 text-8xl text-center title">
+    Change color <span [changeColor]="colors"> {{ title }} </span>
+  </h2>
+</div>
+<ul class="badge_wrap flex justify-center gap-5">
+  <li *ngFor="let badge of badges; let i = index" [ngClass]="badge.className">
+    <a href="">
+      <span>{{ i + 1 }}</span>
+      {{ badge.textContent }}
+    </a>
+  </li>
+</ul>
+<section
+  class="section w-full cursor-pointer"
+  [ngClass]="{ 'bg-accent': isAccent, 'bg-regular': !isAccent }"
+  (click)="toggleClasses()"
+>
+  <h1
+    class="flex justify-center h-full items-center my-10 text-9xl"
+    [ngStyle]="{ transition: '0.3s ease-out' }"
+    [ngClass]="{ 'color-regular': isAccent, 'color-accent': !isAccent }"
+  >
+    Click Me
+  </h1>
+</section>

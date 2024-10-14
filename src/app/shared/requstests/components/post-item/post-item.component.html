@@ -1,0 +1,21 @@
+<div
+  class="post px-10 bg-gradient-primary-0 flex-col justify-center items-center"
+>
+  <div class="post-card card bg-base-100 w-3/4 shadow-xl">
+    <div class="card-body">
+      <div class="card-header pb-4 flex justify-between text-3xl">
+        <span>{{ post?.id }}</span>
+        <h2 class="card-title">{{ post?.title }}</h2>
+      </div>
+      <p>{{ post?.body }}</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary" [routerLink]="['/posts']">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <app-comment
+    *ngIf="comment$ | async as comments"
+    [comments]="comments"
+  ></app-comment>
+</div>

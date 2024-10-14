@@ -1,0 +1,14 @@
+<div class="parent py-10 bg-base-100 relative z-10">
+  <h2 class="text-6xl text-center">Parent component</h2>
+  <button class="btn flex mx-auto my-5" (click)="clickHandler()">
+    Click me!
+  </button>
+
+  <!-- Здесь убираем лишний <ng-template> -->
+  <div class="parent-wrapp text-center py-10" *ngIf="show">
+    <app-children
+      [title]="obj"
+      (eventChange)="handleEvent($event)"
+    ></app-children>
+  </div>
+</div>

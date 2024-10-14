@@ -1,0 +1,30 @@
+.comment-wrapper:nth-child(odd) {
+  transform: translateX(60%);
+}
+.comment-wrapper:nth-child(even) {
+  transform: translateX(40%);
+}
+.name-wrap span {
+  height: 40px;
+  overflow: hidden;
+  font-size: 18px;
+  width: 100%;
+  text-wrap: nowrap;
+  display: flex;
+  align-items: center;
+}
+.mail-wrap span {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.header img {
+  width: 30px;
+  height: 30px;
+}
+.card-body {
+  padding: 20px 30px;
+}
+.card p {
+  font-size: 13px;
+}

@@ -1,0 +1,158 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.top-side {
+  svg {
+    max-width: 100%;
+    padding: 20px 40px 50px;
+  }
+}
+.bottom-side {
+  p {
+    font-size: 50px;
+    opacity: 1;
+    transition: 0.3s ease-in;
+  }
+}
+.bg-base-1 {
+  background: #282a36;
+  z-index: 1;
+  position: relative;
+}
+.bg-base-2 {
+  background-color: #f0060b;
+  z-index: 1;
+  position: relative;
+}
+.bg-base-3 {
+  background: #cc26d5;
+  z-index: 1;
+  position: relative;
+}
+.bg-base-4 {
+  background: linear-gradient(0deg, #f0060b, #f0070c, #cc26d5, #7702ff);
+  z-index: 1;
+  position: relative;
+}
+.bg-gradient-primary-0 {
+  background: linear-gradient(0deg, #f0060b, #f0070c, #cc26d5, #7702ff);
+}
+.bg-gradient-primary-90 {
+  background: linear-gradient(90deg, #f0060b, #f0070c, #cc26d5, #7702ff);
+}
+.bg-gradient-primary-180 {
+  background: linear-gradient(180deg, #f0060b, #f0070c, #cc26d5, #7702ff);
+}
+.bg-gradient-primary-240 {
+  background: linear-gradient(240deg, #f0060b, #f0070c, #cc26d5, #7702ff);
+}
+.bg-gradient-primary-360 {
+  background: linear-gradient(360deg, #f0060b, #f0070c, #cc26d5, #7702ff);
+}
+.bg-gradient-base-90 {
+  background: linear-gradient(90deg, #282a36, #414557);
+}
+.bg-gradient-base-180 {
+  background: linear-gradient(180deg, #282a36, #414557);
+}
+.bg-gradient-base-240 {
+  background: linear-gradient(240deg, #282a36, #414557);
+}
+.bg-gradient-base-360 {
+  background: linear-gradient(360deg, #282a36, #414557);
+}
+.bg-primary {
+  background: #f0070c;
+}
+.bg-accent {
+  background: #cc26d5;
+}
+.bg-regular {
+  background: #7702ff;
+}
+.color-primary {
+  color: #f0070c;
+}
+.color-accent {
+  color: #cc26d5;
+}
+.color-regular {
+  color: #7702ff;
+}
+.color-light {
+  color: white;
+}
+.color-dark {
+  color: #282a36;
+}
+.top-side {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+  height: 45dvh;
+  svg {
+    scale: 0.7;
+  }
+}
+.router-link-active {
+  backdrop-filter: brightness(0.5);
+}
+.greeteng-angular {
+  position: relative;
+  z-index: 1;
+  margin-top: 45dvh;
+  padding-top: 40px;
+
+  .bottom-side {
+    margin: 0 auto;
+  }
+}
+.nav-wrapper {
+  position: relative;
+  z-index: 1;
+  background: #282a36;
+}
+.calc_wrapp {
+  position: relative;
+  z-index: 1;
+}
+.object-list {
+  padding: 50px 0 100px;
+  background: #282a36;
+  position: relative;
+  z-index: 1;
+}
+.sec {
+  min-height: 60dvh;
+}
+@media (max-width: 1600px) {
+  .top-side {
+    height: 40dvh;
+  }
+  .greeteng-angular {
+    margin-top: 40dvh;
+  }
+}
+@media (max-width: 1400px) {
+  .top-side {
+    height: 35dvh;
+  }
+  .greeteng-angular {
+    margin-top: 35dvh;
+  }
+}
+@media (max-width: 1200px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .top-side {
+    height: 30dvh;
+  }
+  .greeteng-angular {
+    margin-top: 30dvh;
+  }
+}

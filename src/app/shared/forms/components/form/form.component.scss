@@ -1,0 +1,16 @@
+.form {
+  background: #282a36;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.input:focus,
+.input:focus-within {
+  outline-color: aliceblue;
+}
+.error {
+  position: absolute;
+  top: -22.5px;
+}

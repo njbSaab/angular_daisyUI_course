@@ -1,0 +1,58 @@
+<div class="comment-wrapper" *ngIf="comments.length > 0; else noComments">
+  <div
+    class="card bg-base-100 w-96 shadow-xl my-5"
+    *ngFor="let comment of comments"
+  >
+    <div class="card-body">
+      <div class="header flex-col justify-center gap-2">
+        <div class="name-wrap flex gap-1 items-center">
+          <img
+            src="https://icongr.am/material/account-edit.svg?size=20&color=ffffff"
+            alt=""
+          />
+          <span>{{ comment.name | shortStr }}</span>
+        </div>
+        <div class="mail-wrap flex gap-1 items-center opacity-70">
+          <img
+            src="https://icongr.am/clarity/email.svg?size=20&color=ffffff"
+            alt=""
+          />
+          <span>
+            {{ comment.email }}
+          </span>
+        </div>
+      </div>
+      <p class="opacity-90">{{ comment.body }}</p>
+      <div
+        class="fotter card-actions flex items-center justify-between opacity-50"
+      >
+        <div class="left-side flex items-center gap-1">
+          <img
+            src="https://icongr.am/clarity/eye.svg?size=20&color=ffffff"
+            alt=""
+          />
+          <span>120</span>
+        </div>
+
+        <div class="right-side flex items-center gap-2">
+          <img
+            src="https://icongr.am/material/chat-plus.svg?size=20&color=ffffff"
+            alt=""
+          />
+          <img
+            src="https://icongr.am/clarity/edit.svg?size=20&color=ffffff"
+            alt=""
+          />
+          <img
+            src="https://icongr.am/clarity/heart.svg?size=20&color=ffffff
+          "
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noComments>
+  <p>No comments available.</p>
+</ng-template>

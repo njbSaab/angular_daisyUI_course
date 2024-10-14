@@ -1,0 +1,33 @@
+<div role="tablist" class="tabs tabs-lifted w-full m-auto py-20">
+  <input
+    type="radio"
+    name="my_tabs_2"
+    role="tab"
+    class="tab"
+    aria-label="Tab 1"
+    checked="checked"
+    [routerLink]="['/calcuator']"
+    routerLinkActive="router-link-active"
+  />
+  <div
+    role="tabpanel"
+    class="tab-content border-base-300 rounded-box p-6 bg-gradient-primary-90"
+  >
+    <app-calc></app-calc>
+  </div>
+
+  <input
+    type="radio"
+    name="my_tabs_2"
+    role="tab"
+    class="tab"
+    aria-label="Tab 2"
+    [routerLink]="['/object-list']"
+  />
+  <div
+    role="tabpanel"
+    class="tab-content bg-base-100 border-base-300 rounded-box p-6 bg-gradient-primary-90"
+  >
+    <app-empty-page></app-empty-page>
+  </div>
+</div>

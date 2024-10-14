@@ -1,0 +1,20 @@
+<div class="object-list grid grid-cols-3 items-center w-fit gap-4 mx-auto">
+  <div
+    class="card bg-gradient-base-90 w-96 shadow-xl cursor-pointer transition ease-in hover:scale-105 hover:brightness-150"
+    *ngFor="let item of myObjects"
+    (click)="redirectTo(item.id)"
+  >
+    <div class="card-body">
+      <h2 class="card-title">
+        <span>{{ item.id }}</span>
+        {{ item.title }}
+      </h2>
+      <p>
+        {{ item.description }}
+      </p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</div>
