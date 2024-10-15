@@ -1,9 +1,64 @@
 <div
-  class="calc_wrapp max-h-dvh flex justify-center py-20 px-0 bg-gradient-primary-180"
+  class="calc_wrapp max-h-dvh flex flex-col items-center justify-center px-0 pb-5 bg-gradient-primary-180"
 >
   <div class="card mt-10 bg-base-100 shadow-xl w-2/3">
-    <h1 class="text-9xl text-center color-accent">{{ res }}</h1>
+    <div class="flex justify-center items-center w-full gap-10 p-10">
+      <button
+        (click)="minusOne()"
+        class="btn btn-square hover:bg-red-400 ease-linear hover:text-red-800"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 12H18"
+          />
+        </svg>
+      </button>
+
+      <h1
+        class="text-9xl text-center color-primary w-2/5"
+        [ngClass]="getCurrentColor()"
+      >
+        {{ resClick }}
+      </h1>
+
+      <button
+        (click)="plusOne()"
+        class="btn btn-square hover:bg-green-400 ease-linear hover:text-green-800"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          style="transform: rotate(45deg)"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Поля формы для ввода данных -->
+  <div class="card mt-10 bg-base-100 shadow-xl w-2/3">
     <div class="card-body">
+      <h1 class="text-9xl text-center color-accent">
+        {{ res !== null ? res : 0 }}
+      </h1>
       <h2 class="card-title pb-2.5 justify-center text-3xl">
         Enter your number
       </h2>
@@ -14,13 +69,13 @@
             type="number"
             placeholder="First Number:"
             class="input input-bordered input-secondary w-full max-w-xs"
-            [formControl]="calcForm.controls['firstNum']"
+            [formControl]="firstNumControl"
           />
         </div>
 
         <div class="form-reactive max-w-21">
           <select
-            [formControl]="calcForm.controls['picker']"
+            [formControl]="pickerControl"
             class="select select-success w-full"
           >
             <option
@@ -36,16 +91,10 @@
         <div class="form-reactive">
           <input
             type="number"
-            placeholder="Last Number: "
+            placeholder="Last Number:"
             class="input input-bordered input-secondary w-full max-w-xs"
-            [formControl]="calcForm.controls['lastNum']"
+            [formControl]="lastNumControl"
           />
-        </div>
-
-        <div class="btn-bx w-full flex justify-center">
-          <button (click)="calcCounter()" class="btn btn-success w-1/2 mt-5">
-            Сount
-          </button>
         </div>
       </div>
     </div>

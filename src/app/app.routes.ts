@@ -27,7 +27,7 @@ export const routes: Routes = [
   },
   {
     path: "form",
-    loadChildren: () => import('./shared/forms/forms.module').then(m => m.FormsModule)
+    loadChildren: () => import('./shared/tabs/tabs.module').then(m => m.TabsModule)
   },
   {
     path: "directive",

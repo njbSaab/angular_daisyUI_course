@@ -1,4 +1,25 @@
-<section class="sec bg-base-4 flex justify-center items-center">
+<section
+  class="sec bg-gradient-primary-90 flex justify-center flex-col gap-5 items-center"
+>
+  <button
+    class="text-center btn btn-ghost text-xl w-1/4"
+    [routerLink]="['drawer-form']"
+    routerLinkActive="router-link-active"
+  >
+    Drawer form
+    <svg
+      class="h-6 w-6 fill-current md:h-8 md:w-8"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+      ></path>
+    </svg>
+  </button>
+
   <form action="submit" class="form w-2/4 justify-center" [formGroup]="myForm">
     <h2 class="text-4xl text-center">Enter your:</h2>
 
@@ -87,6 +108,266 @@
         [disabled]="!myForm.valid"
         (click)="sendForm()"
         class="btn btn-active btn-secondary w-1/2"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  <!--! single-mail -->
+  <form
+    action="submit"
+    class="form w-2/4 justify-center"
+    [formGroup]="customForm"
+  >
+    <h2 class="text-4xl text-center">Custom form</h2>
+    <!-- Email Field -->
+    <label class="input input-bordered flex items-center gap-2 relative">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 16"
+        fill="currentColor"
+        class="h-4 w-4 opacity-70"
+      >
+        <path
+          d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
+        />
+        <path
+          d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
+        />
+      </svg>
+      <input
+        type="text"
+        class="grow"
+        placeholder="mail"
+        formControlName="mailTo"
+      />
+      <small
+        class="text-red-400 error"
+        *ngIf="
+          customForm.get('mailTo')?.invalid && customForm.get('mailTo')?.touched
+        "
+      >
+        Your mail isnt correct please try again
+      </small>
+    </label>
+    <div class="btn-bx text-center">
+      <button
+        [disabled]="!customForm.valid"
+        class="btn btn-active btn-secondary w-1/2"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  <!--! repeat-fields-pass -->
+  <form
+    action="submit"
+    class="form w-2/4 justify-center"
+    [formGroup]="repeatFieldForm"
+  >
+    <h2 class="text-4xl text-center">Reapet form</h2>
+    <!-- Email Field -->
+    <label class="input input-bordered flex items-center gap-2 relative">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 16"
+        fill="currentColor"
+        class="h-4 w-4 opacity-70"
+      >
+        <path
+          d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
+        />
+        <path
+          d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
+        />
+      </svg>
+      <input
+        type="text"
+        class="grow"
+        placeholder="mail"
+        formControlName="sendMail"
+      />
+      <small
+        class="text-red-400 error"
+        *ngIf="
+          repeatFieldForm.get('sendMail')?.invalid &&
+          repeatFieldForm.get('sendMail')?.touched
+        "
+      >
+        Your mail isnt correct please try again
+      </small>
+    </label>
+    <!-- Password Field -->
+    <label class="input input-bordered flex items-center gap-2 relative">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 16"
+        fill="currentColor"
+        class="h-4 w-4 opacity-70"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <input
+        placeholder="first password"
+        type="password"
+        class="grow"
+        formControlName="firstPass"
+      />
+      <small
+        class="text-red-400 error"
+        *ngIf="
+          repeatFieldForm.get('firstPass')?.invalid &&
+          repeatFieldForm.get('firstPass')?.touched
+        "
+      >
+        This field is required
+      </small>
+    </label>
+    <!-- Password Field -->
+    <label class="input input-bordered flex items-center gap-2 relative">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 16"
+        fill="currentColor"
+        class="h-4 w-4 opacity-70"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <input
+        placeholder="repeat first password"
+        type="password"
+        class="grow"
+        formControlName="lastPass"
+      />
+      <small
+        class="text-red-400 error"
+        *ngIf="
+          repeatFieldForm.get('lastPass')?.invalid &&
+          repeatFieldForm.get('lastPass')?.touched
+        "
+      >
+        This field is required
+      </small>
+    </label>
+    <!-- Error for mismatched passwords -->
+    <div
+      *ngIf="repeatFieldForm.errors?.['PasswordDoNotMatch']"
+      class="text-red-400 text-center text-1xl"
+    >
+      Passwords do not match
+    </div>
+    <div class="btn-bx text-center">
+      <button
+        [disabled]="!repeatFieldForm.valid"
+        class="btn btn-active btn-secondary w-1/2"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+
+  <!--! form builder  -->
+  <form
+    action="submit"
+    class="form w-2/4 justify-center gap-5"
+    [formGroup]="formBuilderForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <h2 class="text-4xl text-center">Form Builder</h2>
+
+    <!-- Name Field -->
+    <label class="input input-bordered flex items-center gap-3 relative">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 16"
+        fill="currentColor"
+        class="h-4 w-4 opacity-70"
+      >
+        <path
+          d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
+        />
+        <path
+          d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
+        />
+      </svg>
+      <input
+        type="text"
+        class="grow"
+        placeholder="name"
+        formControlName="name"
+      />
+    </label>
+
+    <!-- Skills FormArray -->
+    <div
+      formArrayName="skills"
+      *ngFor="let skill of skills.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <label class="input input-bordered flex items-center gap-2 relative">
+        <span class="absolute span text-success"> {{ i + 1 }} | Skill: </span>
+        <input
+          type="text"
+          formControlName="skill"
+          placeholder="Skill"
+          class="flex-1"
+        />
+        <button
+          (click)="removeSkill(i)"
+          class="btn btn-circle btn-outline btn-error text-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            style="rotate: 45deg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 4v16m8-8H4"
+            />
+          </svg>
+        </button>
+      </label>
+    </div>
+
+    <div class="btn-bx items-center justify-center flex flex-col gap-5">
+      <button
+        class="btn btn-circle btn-outline btn-success"
+        (click)="addSkill()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 4v16m8-8H4"
+          />
+        </svg>
+      </button>
+
+      <button
+        type="submit"
+        [disabled]="!formBuilderForm.valid"
+        class="btn btn-active btn-secondary w-1/3"
       >
         Submit
       </button>

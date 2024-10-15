@@ -1,62 +1,95 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms'; // Импортируем необходимые классы
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-calc',
-  templateUrl: './calc.component.html',
-  styleUrls: ['./calc.component.scss']
+  templateUrl: './calc.component.html'
 })
 export class CalcComponent {
-  public arrayWithSigns = ["+", "-", "*", "/"];
+  public res: number | null = null;
+  public calcForm: FormGroup;
+  public arrayWithSigns: string[] = ['+', '-', '*', '/'];
 
-  // Создаем группу формы с контролами
-  calcForm = new FormGroup({
-    firstNum: new FormControl('', Validators.required),  // Добавил валидатор
-    picker: new FormControl('', Validators.required),     // Добавил валидатор
-    lastNum: new FormControl('', Validators.required),    // Исправил опечатку
-  });
+  constructor(private fb: FormBuilder) {
+    // Инициализация формы
+    this.calcForm = this.fb.group({
+      firstNum: new FormControl(null, Validators.required),
+      lastNum: new FormControl(null, Validators.required),
+      picker: new FormControl('+', Validators.required)
+    });
 
-  constructor() {}
-
-  public res: number = 0; // Переменная для хранения результата как числа
-
-  public calcCounter() {
-    const formValuesObject = this.calcForm.value; // Получаем объект со значениями формы
-
-    console.log(this.calcForm.value);
-
-    // Проверяем, что все значения существуют и уже являются числами
-    const firstNum = parseFloat(formValuesObject.firstNum ?? '0'); // Если поле пустое, используем значение по умолчанию 0
-    const lastNum = parseFloat(formValuesObject.lastNum ?? '0'); // Если поле пустое, используем значение по умолчанию 0
-    const operationSign = formValuesObject.picker ?? '+'; // Устанавливаем знак по умолчанию '+'
-
-    if (!isNaN(firstNum) && !isNaN(lastNum)) {
-      this.res = this.calculateResult(firstNum, lastNum, operationSign);
-    } else {
-     0;
-    }
+    // Подписка на изменения в форме
+    this.calcForm.valueChanges.subscribe(() => {
+      this.autoCalcCounter();
+    });
   }
 
-  private calculateResult(firstNum: number, lastNum: number, sign: string): number {
-    let result: number;
+  // Геттеры для получения FormControl
+  public get firstNumControl(): FormControl {
+    return this.calcForm.get('firstNum') as FormControl;
+  }
 
-    switch (sign) {
-      case '+':
-        result = firstNum + lastNum;
-        break;
-      case '-':
-        result = firstNum - lastNum;
-        break;
-      case '*':
-        result = firstNum * lastNum;
-        break;
-      case '/':
-        result = lastNum !== 0 ? firstNum / lastNum : NaN;
-        break;
-      default:
-        return 0;
+  public get lastNumControl(): FormControl {
+    return this.calcForm.get('lastNum') as FormControl;
+  }
+
+  public get pickerControl(): FormControl {
+    return this.calcForm.get('picker') as FormControl;
+  }
+
+  // Автоматический расчет при изменениях формы
+  public autoCalcCounter(): void {
+    const firstNum = this.firstNumControl.value;
+    const lastNum = this.lastNumControl.value;
+    const sign = this.pickerControl.value;
+
+    if (firstNum !== null && lastNum !== null && sign) {
+      switch (sign) {
+        case '+':
+          this.res = firstNum + lastNum;
+          break;
+        case '-':
+          this.res = firstNum - lastNum;
+          break;
+        case '*':
+          this.res = firstNum * lastNum;
+          break;
+        case '/':
+          this.res = lastNum !== 0 ? firstNum / lastNum : null;
+          break;
+        default:
+          this.res = null;
+      }
     }
+  }
+  //* Color picker section
+  public resClick = 0;
+  public currentColorIndex = 0; // Индекс текущего цвета
+  public colors: string[] = [
+    'color-primary', 'color-accent', 'color-regular', 'color-light', 'color-dark-green-tea',
+    'color-dark-haki', 'color-dark-black', 'color-dark-gray'
+  ];
 
-    return result;
+  // Уменьшение на 1
+  public minusOne() {
+    this.resClick -= 1;
+    this.updateColor(-1); // Изменение индекса цвета
+  }
+
+  // Увеличение на 1
+  public plusOne() {
+    this.resClick += 1;
+    this.updateColor(1); // Изменение индекса цвета
+  }
+
+  // Метод для изменения индекса цвета
+  private updateColor(direction: number) {
+    // Обновляем индекс, добавляя направление (1 или -1)
+    this.currentColorIndex = (this.currentColorIndex + direction + this.colors.length) % this.colors.length;
+  }
+
+  // Получение текущего цвета
+  public getCurrentColor(): string {
+    return this.colors[this.currentColorIndex];
   }
 }

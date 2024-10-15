@@ -1,8 +1,11 @@
-.sec {
-  min-height: 100%;
-  padding: 100px 0;
+.section {
+  padding: 50px 0 100px;
+  background: #282a36;
+  position: relative;
+  z-index: 1;
   border-radius: 20px;
 }
+
 .form {
   background: #282a36;
   padding: 40px;
