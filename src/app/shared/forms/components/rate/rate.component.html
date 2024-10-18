@@ -1,0 +1,36 @@
+<section class="section">
+  <form
+    action="submit"
+    class="form rate-form w-2/4 bg-gradient-base-360 flex flex-col justify-center rounded-xl m-auto"
+    [formGroup]="rateForm"
+  >
+    <h2 class="text-4xl text-center">Custom control rate:</h2>
+
+    <div
+      class="text-center text-3xl pt-5"
+      *ngIf="options && options.text !== undefined"
+    >
+      <p>{{ options.text }}</p>
+    </div>
+
+    <div class="rate-wrapper">
+      <span class="rate-wrapp" *ngFor="let elem of rateArray; let i = index">
+        <span class="rate-item cursor-pointer" (click)="onRate(elem)">
+          <img
+            [src]="
+              'https://icongr.am/entypo/heart.svg?size=48&color=' +
+              getColor(elem)
+            "
+            alt="heart"
+          />
+        </span>
+      </span>
+    </div>
+
+    <div class="btn-bx text-center">
+      <button (click)="sendForm()" class="btn btn-active btn-secondary w-1/2">
+        Submit
+      </button>
+    </div>
+  </form>
+</section>

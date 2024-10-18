@@ -1,10 +1,13 @@
-<div role="tablist" class="tabs tabs-lifted w-full bg-base-1 m-auto py-20">
+<div
+  role="tablist"
+  class="tabs tabs-lifted w-full bg-base-1 m-auto py-20 rounded-md"
+>
   <input
     type="radio"
     name="my_tabs_2"
     role="tab"
     class="tab"
-    aria-label="Tab 1"
+    aria-label="Drawer Form"
     checked="checked"
   />
   <div
@@ -19,12 +22,26 @@
     name="my_tabs_2"
     role="tab"
     class="tab"
-    aria-label="Tab 2"
+    aria-label="Reactive Forms"
   />
   <div
     role="tabpanel"
     class="tab-content bg-base-100 border-base-300 rounded-box p-6 bg-gradient-primary-90"
   >
     <app-form></app-form>
+  </div>
+
+  <input
+    type="radio"
+    name="my_tabs_2"
+    role="tab"
+    class="tab"
+    aria-label="Rate Form"
+  />
+  <div
+    role="tabpanel"
+    class="tab-content bg-base-100 border-base-300 rounded-box p-6 bg-gradient-primary-90"
+  >
+    <app-rate [options]="{ rates: 5, text: 'Please rate' }"></app-rate>
   </div>
 </div>

@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MyChangeColorDirective } from '../directives/my-change-color.directive';
+import { HostChagesColorsComponent } from '../host-chages-colors/host-chages-colors.component';
 
 @Component({
   selector: 'app-directive',
   standalone: true,
-  imports: [CommonModule, MyChangeColorDirective],
+  imports: [CommonModule, MyChangeColorDirective, HostChagesColorsComponent],
   templateUrl: './directive.component.html',
   styleUrls: ['./directive.component.scss']
 })

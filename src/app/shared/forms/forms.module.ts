@@ -4,9 +4,10 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './components/form/form.component';
 import { FormsRouting } from './forms.routing';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { RateComponent } from './components/rate/rate.component';
 
 @NgModule({
-  declarations: [FormComponent, LoginFormComponent],
+  declarations: [FormComponent, LoginFormComponent, RateComponent],
   imports: [
     CommonModule,
     FormsRouting,
@@ -14,6 +15,6 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     FormsModule,
   ],
   providers: [FormBuilder],
-  exports: [FormComponent, LoginFormComponent],
+  exports: [FormComponent, LoginFormComponent, RateComponent],
 })
 export class FormsUIModule { }

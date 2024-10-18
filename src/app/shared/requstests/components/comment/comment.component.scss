@@ -4,6 +4,9 @@
 .comment-wrapper:nth-child(even) {
   transform: translateX(40%);
 }
+.card {
+  background: linear-gradient(90deg, #282a36, #414557);
+}
 .name-wrap span {
   height: 40px;
   overflow: hidden;

@@ -1,7 +1,10 @@
 <div class="bg-base-100 relative z-10">
   <h2 class="pb-14 text-8xl text-center title">
-    Change color <span [changeColor]="colors"> {{ title }} </span>
+    Change color 1<span [changeColor]="colors"> {{ title }} </span>
   </h2>
+</div>
+<div class="bg-base-100 relative z-10">
+  <app-host-chages-colors></app-host-chages-colors>
 </div>
 <ul class="badge_wrap flex justify-center gap-5">
   <li *ngFor="let badge of badges; let i = index" [ngClass]="badge.className">

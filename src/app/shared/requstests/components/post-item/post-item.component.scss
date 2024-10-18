@@ -6,6 +6,9 @@
   justify-content: center;
   position: relative;
   z-index: 1;
+  .post-card {
+    background: linear-gradient(90deg, #282a36, #414557);
+  }
   .post-card .card-header {
     justify-content: center;
     align-items: center;

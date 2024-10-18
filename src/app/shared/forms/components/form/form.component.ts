@@ -29,6 +29,7 @@ export class FormComponent {
       name: ['Nj', Validators.required],
       skills: this._fb.array([]) // Используем FormArray для skills
     });
+
   }
 
   // Получаем доступ к FormArray
@@ -57,7 +58,6 @@ export class FormComponent {
   public onSubmit() {
     console.log(this.formBuilderForm.value);
   }
-  //*
 
   // Регулярное выражение для валидации email
   private emailRegExp: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
