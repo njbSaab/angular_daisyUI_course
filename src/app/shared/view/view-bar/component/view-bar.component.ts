@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: './view-bar.component.scss'
 })
 export class ViewBarComponent {
-
 }

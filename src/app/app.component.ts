@@ -15,6 +15,10 @@ import { PipeModule } from './shared/pipe/pipe.module';
 export class AppComponent {
   public title = 'I love Angular';
 
+  constructor(){
+
+  }
+
   public congrat = 'Congratulations! Your app is running. 🎉';
   public tooltip="show Message"
 

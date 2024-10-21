@@ -1,5 +1,15 @@
-<div class="section text-center">
-  <app-view-bar></app-view-bar>
+<div class="sec text-center">
+  <button class="btn btn-accent" (click)="showText()">Show</button>
+  <div class="text-show" *ngIf="text" [@fadeInOut]="text ? 'open' : 'closed'">
+    <ng-container *ngFor="let item of todoArr; let i = index">
+      <app-to-do [todo]="item"></app-to-do>
+    </ng-container>
+  </div>
+
+  <div class="bar py-5">
+    <app-view-bar></app-view-bar>
+  </div>
+
   <button
     class="btn btn-primary my-5"
     (click)="login()"

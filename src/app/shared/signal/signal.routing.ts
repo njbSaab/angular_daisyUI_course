@@ -1,16 +1,11 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ViewFooComponent } from './view-foo/component/view-foo.component';
-
+import { SignalComponent } from './components/signal/signal.component';
 
 export const routes: Routes = [
   {
     path: "",
-    component: ViewFooComponent,
-  },
-  {
-    path: "todo",
-    component: ViewFooComponent,
+    component: SignalComponent,
   },
 ];
 
@@ -18,4 +13,4 @@ export const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ViewRouting {}
+export class SignalRouting { }

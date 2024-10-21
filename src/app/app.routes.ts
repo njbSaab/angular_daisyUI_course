@@ -7,8 +7,8 @@ import { isLoggedGuardService, isLoggedGuarFn } from './is-logged.guard';
 
 export const routes: Routes = [
   {
-  path: "calculator",
-  component: CalcComponent
+    path: "calculator",
+    component: CalcComponent
   },
   {
     path: "", redirectTo: "calculator", pathMatch: "full"
@@ -42,6 +42,10 @@ export const routes: Routes = [
   {
     path: "view",
     loadChildren: () => import('./shared/view/view.module').then(m => m.ViewModule)
+  },
+  {
+    path: "signal",
+    loadChildren: () => import('./shared/signal/signal.module').then(m => m.SignalModule)
   },
   {
     path: "**",
